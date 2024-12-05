@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Parkinsans:wght@300..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
 <body>
   <!-- Header Section -->
@@ -31,7 +32,7 @@
                 <li><a href="#">Accomodation</a></li>
                 <li><a href="#">Packages</a></li>
                 <li><a href="#">Rooms</a></li>
-                <li><a href="#footer-section">Contact</a></li>
+                <li><a href="#footer-id">Contact</a></li>
             </ul>
         </nav>
         <div class="text" >
@@ -119,10 +120,23 @@
       </div>
     </div>
   </section>
+
+
+  <!-- booking section -->
   <section class="booking" id="booking-section">
-    <div class="booking-container">
+    <div class="booking-container" id="form-page">
       <p class="book-now">Book Now</p>
         <form id="reservationForm">
+          <div class="booking-grid">
+            <div class="book">
+              <label for="name">Name:</label>
+              <input type="text" id="name" placeholder="e.g., John Doe" required>
+            </div>
+            <div class="book">
+              <label for="number">Mobile:</label>
+              <input type="text" id="mobile" placeholder="e.g., 9876543210" required>
+            </div>
+          </div>
           <div class="booking-grid">
             <div class="book">
               <label for="checkInDate">Check-In Date:</label>
@@ -144,12 +158,30 @@
             </div>
           </div> 
           <div class="booking-grid">
-            <button type="button" onclick="goToPaymentPage()">Next</button>
+            <button type="button" id="generate-button">Next</button>
           </div>
         </form>
     
       </div>
     </div>
+    <!-- qr page -->
+    <div class="booking-container" id="qr-page" style="display: none;">
+      <p class="book-now">Scan to Pay</p>
+      <div class="booking-grid">
+        <canvas id="qr-code"></canvas>
+      </div>
+      <p class="waiting">Waiting for Transaction...</p>
+    </div>
+
+    <!-- Receipt Page -->
+    <div id="receipt-page" class="booking-container" style="display: none;">
+      <p class="book-now">Payment Receipt</p>
+      <div id="receipt-details" class="booking-grid"></div>
+      <div class="booking-grid">
+        <button type="button" id="back-button">I have downloaded receipt</button>
+      </div>
+    </div> 
+
     <img src="flowers.jpg" alt="srushtivilla" style="height: 90%; width: 55%; padding-left: 20%; filter:blur(3px);"/>
 
   </section>

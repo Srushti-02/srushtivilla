@@ -427,9 +427,18 @@
   width: 50%;
 }
 
-.hidden {
-  display: none;
+.waiting{
+  padding-top: 2%;
+  text-align: center;
+  padding-bottom: 2%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #444444b9;
+  animation: fadeIn 1.5s ease-in-out;
+  font-size: 1rem;
 }
+
+
+
 /* Footer styling */
 .footer {
   background-color: #000000;

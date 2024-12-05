@@ -90,6 +90,83 @@ function updateCalendar() {
 updateCalendar();
 
 
+// payment
+// Get references to the form and QR code pages
+const formPage = document.getElementById("form-page");
+const qrPage = document.getElementById("qr-page");
+const receiptPage = document.getElementById("receipt-page");
+
+
+// Get the Generate button and Back button
+const generateButton = document.getElementById("generate-button");
+const backButton = document.getElementById("back-button");
+const receiptDetails = document.getElementById("receipt-details");
+
+
+// Add event listener to Generate button
+generateButton.addEventListener("click", function () {
+  // Step 1: Create a transaction ID (UUID or from backend)
+  const transactionId = `TXN${Date.now()}`; // Example transaction ID
+  const upiId = "9529474135@axl";
+  const amount = 1;
+  const name = document.getElementById("name").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  // Step 2: Generate UPI payment link
+  const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR&tid=${transactionId}`;
+
+    // Step 3: Generate QR Code
+  const qrCode = new QRious({
+    element: document.getElementById("qr-code"),
+    size: 200,
+    value: upiLink,
+  });
+
+  // Switch to QR code page
+  formPage.style.display = "none";
+  qrPage.style.display = "block";
+
+  // Step 4: Poll for payment confirmation
+  checkPaymentStatus(transactionId, name, mobile, amount);
+});
+
+async function checkPaymentStatus(transactionId, name, mobile, amount) {
+  try {
+    // Poll the server every 3 seconds for payment status
+    const interval = setInterval(async () => {
+      const response = await fetch(`/api/check-payment-status?transactionId=${transactionId}`);
+      const data = await response.json();
+
+      if (data.status === "SUCCESS") {
+        clearInterval(interval);
+
+        // Step 5: Show the receipt
+        receiptDetails.innerHTML = `
+          <p><strong>Customer Name:</strong> ${name}</p>
+          <p><strong>Mobile Number:</strong> ${mobile}</p>
+          <p><strong>Amount Paid:</strong> INR ${amount}</p>
+          <p><strong>Transaction ID:</strong> ${transactionId}</p>
+          <p><strong>Payment Status:</strong> Successful</p>
+        `;
+
+        qrPage.style.display = "none";
+        receiptPage.style.display = "block";
+      }
+    }, 3000);
+  } catch (error) {
+    console.error("Error checking payment status:", error);
+  }
+}
+
+// Add event listener to Back button
+backButton.addEventListener("click", function () {
+  // Clear QR code
+  document.getElementById("qr-code").getContext("2d").clearRect(0, 0, 200, 200);
+
+  // Switch back to form page
+  formPage.style.display = "block";
+  qrPage.style.display = "none";
+});
+
 
 
 
