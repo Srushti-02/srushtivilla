@@ -29,7 +29,7 @@
         <nav class="nav">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Accomodation</a></li>
+                <li><a href="#">Amenities</a></li>
                 <li><a href="#">Packages</a></li>
                 <li><a href="#">Rooms</a></li>
                 <li><a href="#footer-id">Contact</a></li>
@@ -44,40 +44,6 @@
     </div>
 
   </section>
-
-  <!-- Features Section -->
-  <section class="features">
-    <div class="features-container">
-      <p class="our-features">For Booking Call Us @: <b>+91 9881453427</b></p>
-      <div class="feature-grid">
-        <div class="feature">
-          <img src="image1.jpg" alt="image">
-          <p class="title">Luxurious Rooms</p>
-          <p class="sub-title">Experience comfort like never before. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-        </div>
-        <div class="feature">
-          <img src="image1.jpg" alt="image">
-          <p class="title">Fine Dining</p>
-          <p class="sub-title">Enjoy gourmet meals crafted by top chefs. aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-        </div>
-        <div class="feature">
-          <img src="image1.jpg" alt="image">
-          <p class="title">Scenic Views</p>
-          <p class="sub-title">Immerse yourself in breathtaking landscapes. aaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="quotes">
-    <div class="quote-container">
-      <p class="quote-1">Rich in heritage. Best in comfort</p>
-      <p class="quote-2">With the everlasting beauty that stood for many years comes a fine <br/>resort to serve its name</p>
-      <p class="quote-3">WANT TO PLAN MY HOLIDAY HERE</p>
-    </div>
-  </section>
-
-
-
   <!-- facilities section -->
 
   <section class="facilities">
@@ -121,70 +87,52 @@
     </div>
   </section>
 
-
-  <!-- booking section -->
-  <section class="booking" id="booking-section">
-    <div class="booking-container" id="form-page">
-      <p class="book-now">Book Now</p>
-        <form id="reservationForm">
-          <div class="booking-grid">
-            <div class="book">
-              <label for="name">Name:</label>
-              <input type="text" id="name" placeholder="e.g., John Doe" required>
-            </div>
-            <div class="book">
-              <label for="number">Mobile:</label>
-              <input type="text" id="mobile" placeholder="e.g., 9876543210" required>
-            </div>
+  <!-- features section -->
+  <section class="features">
+    <div class="features-container">
+      <p class="our-features">For Booking Call Us @: <b>+91 9881453427</b></p>
+      <div class="feature-grid">
+        <!-- Vasota Adventure Package -->
+        <div class="feature">
+          <img src="first_package.png" alt="Vasota Adventure">
+          <p class="title">Vasota Adventure Package</p>
+          <p class="sub-title">Highlights the trek experience with included meals and refreshments.</p>
+          <p class="price">Buy in &#8377; 1000</p>
+          <div class="button-container">
+            <button class="details-btn" onclick="location.href='accomodation.html#package-one'">More Details</button>
+            <button class="book-btn">Book Now</button>
           </div>
-          <div class="booking-grid">
-            <div class="book">
-              <label for="checkInDate">Check-In Date:</label>
-              <input type="date" id="checkInDate" name="checkInDate" required>
-            </div>
-            <div class="book">
-              <label for="checkOutDate">Check-Out Date:</label>
-              <input type="date" id="checkOutDate" name="checkOutDate" required>
-            </div>
+        </div>
+        <!-- Comfort Stay Package -->
+        <div class="feature">
+          <img src="sec_package.png" alt="Comfort Stay">
+          <p class="title">Comfort Stay Package</p>
+          <p class="sub-title">Focuses on a balanced stay with a mix of veg and nonveg options, snacks, and breakfast.</p>
+          <p class="price">Buy In &#8377; 1300</p>
+          <div class="button-container">
+            <button class="details-btn" onclick="location.href='accomodation.html#package-two'">More Details</button>
+            <button class="book-btn">Book Now</button>
           </div>
-          <div class="booking-grid">
-            <div class="book">
-              <label for="guests">Number of Guests:</label>
-              <input type="number" id="guests" name="guests" min="1" max="10" required>
-            </div>
-            <div class="book">
-              <label for="rooms">Number of Rooms:</label>
-              <input type="number" id="rooms" name="rooms" min="1" max="2" required>
-            </div>
-          </div> 
-          <div class="booking-grid">
-            <button type="button" id="generate-button">Next</button>
+        </div>
+        <!-- Premium Stay Package -->
+        <div class="feature">
+          <img src="shriyog.jpg" alt="Premium Stay">
+          <p class="title">Premium Stay Package</p>
+          <p class="sub-title">Emphasizes the indulgence of two non-veg meals along with the stay.</p>
+          <p class="price">Buy In &#8377; 1500</p>
+          <div class="button-container">
+            <button class="details-btn" onclick="location.href='accomodation.html#package-three'">More Details</button>
+            <button class="book-btn">Book Now</button>
           </div>
-        </form>
-    
+        </div>
       </div>
     </div>
-    <!-- qr page -->
-    <div class="booking-container" id="qr-page" style="display: none;">
-      <p class="book-now">Scan to Pay</p>
-      <div class="booking-grid">
-        <canvas id="qr-code"></canvas>
-      </div>
-      <p class="waiting">Waiting for Transaction...</p>
+    <div class="quote-container">
+      <p class="quote-1">Rich in heritage. Best in comfort</p>
+      <p class="quote-2">With the everlasting beauty that stood for many years comes a fine <br />resort to serve its name</p>
     </div>
-
-    <!-- Receipt Page -->
-    <div id="receipt-page" class="booking-container" style="display: none;">
-      <p class="book-now">Payment Receipt</p>
-      <div id="receipt-details" class="booking-grid"></div>
-      <div class="booking-grid">
-        <button type="button" id="back-button">I have downloaded receipt</button>
-      </div>
-    </div> 
-
-    <img src="flowers.jpg" alt="srushtivilla" style="height: 90%; width: 55%; padding-left: 20%; filter:blur(3px);"/>
-
   </section>
+
 
 
   <!-- Footer Section -->
@@ -211,7 +159,7 @@
           <a href="https://www.instagram.com/srushtivillaa" target="_blank">
             <img src="icons/instagram.png" alt="Instagram">
           </a>
-          <a href="https://www.facebook.com/yourprofile" target="_blank">
+          <a href="https://www.facebook.com/profile.php?id=100087441315639" target="_blank">
             <img src="icons/facebook.png" alt="Facebook">
           </a>
 

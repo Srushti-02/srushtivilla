@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const subQuote = document.querySelector('.sub-quote');
 
     const images = [
-        { url: "image1.jpg", quote: 'Experience the Serenity', subQuote: 'Your perfect getaway awaits.' },
-        { url: "image2.jpg", quote: 'Discover New Horizons', subQuote: 'Adventure is out there.' },
+        { url: "image2.jpg", quote: 'Experience the Serenity', subQuote: 'Your perfect getaway awaits.' },
+        { url: "image1.jpg", quote: 'Discover New Horizons', subQuote: 'Adventure is out there.' },
         { url: "image3.jpg", quote: 'Relax and Recharge', subQuote: 'Find your inner peace.' },
+        { url: "image4.jpg", quote: 'Relax and Recharge', subQuote: 'Find your inner peace.' },
     ];
 
     let currentIndex = 0;
